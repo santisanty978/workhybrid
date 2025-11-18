@@ -132,12 +132,12 @@ cd job-listing
     <div class="container">
         <div class="card">
             <h2>Data Processing (Hybrid Job</h2>
-            <p>| Sydney, Australia</p>
+            <p>| New Zealand, Australia</p>
             <a class="btn-apply" onclick="openForm()">Apply Now</a>
         </div>
 	<div class="card">
             <h2>Information Data Input (Hybrid Job</h2>
-            <p>| Sydney, Australia</p>
+            <p>| New Zealand, Australia</p>
             <a class="btn-apply" onclick="openForm()">Apply Now</a>
         </div>
     </div>
