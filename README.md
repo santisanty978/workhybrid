@@ -1,1 +1,248 @@
 # workhybrid
+
+git clone https://github.com/USERNAME/job-listing.git
+cd job-listing
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Form Modal</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 7px rgba(0,0,0,0.15);
+        }
+
+        .btn-apply {
+            background: #0b67b3;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        /* MODAL POPUP */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.55);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 800px;
+            padding: 30px;
+            border-radius: 12px;
+            overflow-y: auto;
+            max-height: 95vh;
+        }
+
+        .close-btn {
+            float: right;
+            background: #d9534f;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        h2 {
+            margin-top: 0;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        /* FORM STYLING */
+        .form-section {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .col {
+            flex: 1;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: #0b67b3;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #d98300;
+            margin-top: -15px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- JOB CARD -->
+    <div class="container">
+        <div class="card">
+            <h2>Data Processing (Hybrid Job</h2>
+            <p>| Sydney, Australia</p>
+            <a class="btn-apply" onclick="openForm()">Apply Now</a>
+        </div>
+	<div class="card">
+            <h2>Information Data Input (Hybrid Job</h2>
+            <p>| Sydney, Australia</p>
+            <a class="btn-apply" onclick="openForm()">Apply Now</a>
+        </div>
+    </div>
+
+    <!-- POPUP FORM -->
+    <div id="applyModal" class="modal">
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeForm()">X</span>
+
+            <h2>Would you like to apply for Part-time or Full-time?</h2>
+            <hr>
+
+            <!-- FORM -->
+            <form>
+
+                <!-- Full-time / Part-time -->
+                <div class="form-section">
+                    <p>It's flexible working time and working hours depend on you.</p>
+                    <label><input type="checkbox"> Full-Time</label><br>
+                    <label><input type="checkbox"> Part-Time</label>
+                </div>
+
+                <!-- Age -->
+                <div class="form-section">
+                    <p>Are you over 22, right?</p>
+                    <label><input type="radio" name="age" required> Yes</label><br>
+                    <label><input type="radio" name="age"> No</label>
+                </div>
+
+                <!-- Name -->
+                <div class="row">
+                    <div class="col">
+                        <label>First Name *</label>
+                        <input type="text" required>
+                    </div>
+
+                    <div class="col">
+                        <label>Last Name *</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+
+                <!-- Current job + Native country -->
+                <div class="row">
+                    <div class="col">
+                        <label>Current job *</label>
+                        <input type="text" required>
+                    </div>
+
+                    <div class="col">
+                        <label>Native Country *</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+
+                <!-- WhatsApp + email -->
+                <div class="row">
+                    <div class="col">
+                        <label>WhatsApp number (+61): *</label>
+                        <input type="text" required>
+                        <div class="note">
+                            ⚠️ Note: If you Have Whatsapp, register using a local +61 number.
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <label>E-mail *</label>
+                        <input type="email" placeholder="santisanty978@gmail.com" required>
+                    </div>
+                </div>
+
+                <!-- Facebook -->
+                <label>Facebook Name or Link</label>
+                <input type="text">
+
+                <p>
+                    Thank you for providing your information. Our person in charge will review
+                    your job application and contact you via WhatsApp. Please allow up to 24 hours
+                    for a response. Have a nice day!
+                </p>
+
+                <button class="submit-btn">Submit</button>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        function openForm() {
+            document.getElementById("applyModal").style.display = "flex";
+        }
+
+        function closeForm() {
+            document.getElementById("applyModal").style.display = "none";
+        }
+
+        window.onclick = function(e) {
+            let modal = document.getElementById("applyModal");
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
